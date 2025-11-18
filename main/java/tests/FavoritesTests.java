@@ -1,5 +1,6 @@
 package tests;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.FavoritesPage;
@@ -25,6 +26,7 @@ public class FavoritesTests extends TestBase {
 
     @Test
     public void testAddToFavoritesWithoutLogin() {
+        WebDriver driver = null;
         HomePage homePage = new HomePage(driver);
         homePage.searchForStation("rock");
 
@@ -38,6 +40,7 @@ public class FavoritesTests extends TestBase {
 
     @Test
     public void testLoginFunctionality() {
+        WebDriver driver = null;
         HomePage homePage = new HomePage(driver);
         homePage.clickLoginLink();
 
@@ -50,3 +53,4 @@ public class FavoritesTests extends TestBase {
                 "Login attempt should result in error or redirection");
     }
 }
+

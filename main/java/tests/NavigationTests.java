@@ -1,5 +1,6 @@
 package tests;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
@@ -10,6 +11,7 @@ public class NavigationTests extends TestBase {
 
     @Test
     public void testStationsPageNavigation() {
+        WebDriver driver = null;
         HomePage homePage = new HomePage(driver);
         homePage.clickStationsLink();
 
