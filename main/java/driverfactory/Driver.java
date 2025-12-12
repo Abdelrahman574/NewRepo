@@ -66,7 +66,7 @@ public class Driver {
         }
     }
 
-    public WebDriver get() {
+    public WebDriver get(String url) {
         return driver.get();
     }
 
@@ -78,8 +78,5 @@ public class Driver {
         return new driverfactory.ElementActions(driver.get());
     }
 
-    public BrowserActions browser() {
-        return new BrowserActions(driver.get());
-    }
 
 }

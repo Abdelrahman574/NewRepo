@@ -5,12 +5,9 @@ import org.openqa.selenium.support.events.WebDriverListener;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.net.URL;
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.NoSuchElementException;
-
 import static utilities.PropertiesManager.frameworkConfig;
 
 public class DriverListener implements WebDriverListener {
@@ -27,12 +24,6 @@ public class DriverListener implements WebDriverListener {
     public void afterGet(WebDriver driver, String url) {
         System.out.println("Getting to \"" + url + "\".");
     }
-
-//    @Override
-//    public void afterGetCurrentUrl(String result, WebDriver driver) {
-//        System.out.println("Current url is: \"" + result + "\".");
-//    }
-
     @Override
     public void afterGetTitle(WebDriver driver, String result) {
         System.out.println("Current Page Title is: \"" + result + "\".");
@@ -140,17 +131,6 @@ public class DriverListener implements WebDriverListener {
         }
     }
 
-//    @Override
-//    public void beforeSendKeys(WebElement element, CharSequence... keysToSend) {
-//        StringBuilder stringBuilder = new StringBuilder();
-//        Arrays.stream(keysToSend).toList().forEach(stringBuilder::append);
-//        try {
-//            System.out.println("Type \"" + keysToSend + "\" into " + getElementName(element) + ".");
-//        } catch (Exception throwable) {
-//            System.out.println("Type \"" + keysToSend + "\".");
-//        }
-//    }
-
     @Override
     public void beforeClear(WebElement element) {
         System.out.println("Clear " + getElementName(element) + ".");
@@ -173,9 +153,6 @@ public class DriverListener implements WebDriverListener {
             System.out.println("Get Text, text is :\"" + result + "\".");
         }
     }
-
-
-    // Alert
 
     @Override
     public void beforeSendKeys(Alert alert, String text) {

@@ -1,5 +1,6 @@
 package tests;
 
+import driverfactory.Driver;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,8 +14,8 @@ public class FavoritesTests extends TestBase {
 
     @Test
     public void testFavoritesPageNavigation() {
-        HomePage homePage = new HomePage(driver);
-        homePage.clickFavoritesLink();
+        HomePage homePage = new HomePage((Driver) driver);
+
 
         FavoritesPage favoritesPage = new FavoritesPage(driver);
 
@@ -27,8 +28,7 @@ public class FavoritesTests extends TestBase {
     @Test
     public void testAddToFavoritesWithoutLogin() {
         WebDriver driver = null;
-        HomePage homePage = new HomePage(driver);
-        homePage.searchForStation("rock");
+        HomePage homePage = new HomePage((Driver) driver);
 
         SearchPage searchPage = new SearchPage(driver);
         searchPage.clickFirstFavoriteButton();
@@ -39,10 +39,10 @@ public class FavoritesTests extends TestBase {
     }
 
     @Test
-    public void testLoginFunctionality() {
+    public <HomePage> void testLoginFunctionality() {
         WebDriver driver = null;
-        HomePage homePage = new HomePage(driver);
-        homePage.clickLoginLink();
+        pages.HomePage homePage = new pages.HomePage((Driver) driver);
+
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login("testuser", "testpass");

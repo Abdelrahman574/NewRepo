@@ -1,5 +1,6 @@
 package tests;
 
+import driverfactory.Driver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -14,7 +15,7 @@ public class SearchTests extends TestBase {
 
     @Test
     public void testSearchForRockStations() {
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage((Driver) driver);
         SearchPage searchPage = new SearchPage(driver);
 
 
@@ -34,7 +35,7 @@ public class SearchTests extends TestBase {
 
     @Test
     public void testSearchForNewsStations() {
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage((Driver) driver);
         SearchPage searchPage = new SearchPage(driver);
 
         homePage.searchFor("news");
@@ -48,7 +49,7 @@ public class SearchTests extends TestBase {
 
     @Test
     public void testSearchForJazzStations() {
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage((Driver) driver);
         SearchPage searchPage = new SearchPage(driver);
 
         homePage.searchFor("jazz");
@@ -62,7 +63,7 @@ public class SearchTests extends TestBase {
 
     @Test
     public void testSearchWithInvalidTerm() {
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage((Driver) driver);
         SearchPage searchPage = new SearchPage(driver);
 
         homePage.searchFor("invalidstation12345");
@@ -70,13 +71,12 @@ public class SearchTests extends TestBase {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.urlContains("search"));
 
-        // قد لا توجد رسالة خطأ واضحة، لكن عدد النتائج يكون صفر
         System.out.println("Results for invalid search: " + searchPage.getResultsCount());
     }
 
     @Test
     public void testPlayStation() {
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage((Driver) driver);
         SearchPage searchPage = new SearchPage(driver);
 
         homePage.searchFor("bbc");
