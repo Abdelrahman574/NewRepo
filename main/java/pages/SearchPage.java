@@ -9,7 +9,7 @@ import java.util.List;
 
 public class SearchPage extends BasePage {
 
-    // Locators الحقيقية
+    // Locators
     @FindBy(css = ".station-item, .list-group-item")
     private List<WebElement> stationResults;
 
